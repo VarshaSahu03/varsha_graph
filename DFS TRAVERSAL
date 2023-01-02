@@ -1,0 +1,44 @@
+package graph;
+
+import java.util.Scanner;
+
+public class DFS {
+	public static void dfstraversal(int adjMatrix[][],int currentVertices,boolean visited[]) {
+		visited[currentVertices]=true;
+		System.out.print(currentVertices+" ");
+		for(int i=0;i<adjMatrix.length;i++) {
+		// i is neighbor of current vertices
+			if(adjMatrix[currentVertices][i]==1 && visited[i]==false) {
+				dfstraversal(adjMatrix,i,visited);
+				
+			}  
+			
+		}
+	}
+
+	public static void dfsTraversal(int adjMatrix[][]) {
+		boolean visited[]=new boolean [adjMatrix.length];
+		int currentVertices= 0;
+		dfstraversal(adjMatrix,currentVertices,visited);
+		
+	}
+		public static void main(String[] args) {
+			Scanner s= new Scanner (System.in)	;
+			//we take 2 input 
+			int vertices=s.nextInt();  //no of vertices
+			int edges=s.nextInt();    // no of edges
+			
+			int adjMatrix[][]=new int [vertices][vertices]; //2d array v*v
+			
+			//input
+			for(int i=0;i<edges;i++) {
+				int v1=s.nextInt();
+				int v2=s.nextInt();
+				
+				adjMatrix[v1][v2]=1;
+				adjMatrix[v2][v1]=1;
+					
+			}
+			dfsTraversal(adjMatrix);
+	}
+}
