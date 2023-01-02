@@ -12,7 +12,7 @@ public class adj_matrix {
 			
 			int adjMatrix[][]=new int [vertices][vertices]; //2d array v*v
 			
-			//iterate in graph
+			//take input
 			for(int i=0;i<edges;i++) {
 				int v1=s.nextInt();
 				int v2=s.nextInt();
@@ -22,6 +22,7 @@ public class adj_matrix {
 				
 				
 			}
+			//print 
 			for(int i=0;i<vertices;i++) {
 				for(int j=0;j<vertices;j++) {
 					System.out.print(adjMatrix[i][j]+" ");
